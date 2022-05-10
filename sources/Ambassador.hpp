@@ -6,8 +6,9 @@ class Ambassador: public Player{
         Player* _to_player;
     public:
         bool _transfered;
-        Ambassador(Game* game, string name);
-        void block(Player* player);
-        void transfer(Player* from_player, Player* to_player);
+        Ambassador(Game& game, string name);
+        void block(Player& player);
+        void transfer(Player& from_player, Player& to_player);
         void untransfer();
+        ~Ambassador();
 };

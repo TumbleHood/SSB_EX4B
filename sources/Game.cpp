@@ -1,4 +1,5 @@
 #include "Game.hpp"
+#include "Player.hpp"
 
 using namespace coup;
 
@@ -17,7 +18,7 @@ vector<string> Game::players(){
 }
 
 string Game::turn(){
-    return players().at(_turn);
+    return players().at((size_t)_turn);
 }
 
 string Game::winner(){
@@ -67,4 +68,5 @@ int Game::get_player_number(Player* player){
             return element.first;
         }
     }
+    return -1;
 }

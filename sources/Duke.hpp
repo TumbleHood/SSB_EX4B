@@ -2,7 +2,9 @@
 
 class Duke: public Player{
     public:
-        Duke(Game* game, string name);
+        Duke(Game& game, string name);
         void tax();
-        void block(Player* player);
+        void block(Player& player);
+        ~Duke();
+
 };

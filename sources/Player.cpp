@@ -3,6 +3,13 @@
 #include "Assassin.hpp"
 #include "Ambassador.hpp"
 
+Player::Player(Game& game, string name){
+    _game = &game;
+    _name = name;
+    _coins = 0;
+    _game->add_player(this);
+}
+
 void Player::income(){
     reset_turn();
     _coins++;
@@ -26,12 +33,12 @@ string Player::get_name(){
     return _name;
 }
 
-void Player::coup(Player* player){ //except for assassin
+void Player::coup(Player& player){ //except for assassin
     reset_turn();
     if (coins() < 7){
         throw invalid_argument("Player does not have enough coins to coup!");
     }
-    _game->remove_player(player);
+    _game->remove_player(&player);
 }
 
 void Player::reset_turn(){
@@ -46,3 +53,5 @@ void Player::reset_turn(){
     }
     _played_foreign_aid = false;
 }
+
+Player::~Player(){}

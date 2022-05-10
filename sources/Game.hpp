@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Player.hpp"
 #include <string>
 #include <vector>
 #include <map>
@@ -9,11 +8,11 @@
 using namespace std;
 
 namespace coup{
+    class Player;
     class Game{
-        protected:
-            map<int, Player*> _players;
-            int _turn;
-            string _winner;
+        map<int, Player*> _players;
+        int _turn;
+        string _winner;
         public:
             Game();
             vector<string> players();
