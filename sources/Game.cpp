@@ -28,8 +28,43 @@ void Game::add_player(Player* player){
     _players.insert(pair<int, Player*>(_players.size(), player));
 }
 
+void Game::add_player(Player* player, int number){
+    map<int, Player*> temp = map<int, Player*>();
+    int i = 0;
+    for (pair<int, Player*> element: _players){
+        if (element.first == number){
+            temp.insert(pair<int, Player*>(number, player));
+            i++;
+        }
+        temp.insert(pair<int, Player*>(element.first + i, element.second));
+    }
+    _players = map<int, Player*>(temp);
+}
+
 void Game::advance_turn(){
     if (_turn++ >= _players.size()){
         _turn = 0;
+    }
+}
+
+void Game::remove_player(Player* player){
+    map<int, Player*> temp = map<int, Player*>(_players);
+    int i = 0;
+    for (pair<int, Player*> element: _players){
+        if (element.second == player){
+            i--;
+        }
+        else{
+            temp.insert(pair<int, Player*>(element.first - i, element.second));
+        }
+    }
+    _players = map<int, Player*>(temp);
+}
+
+int Game::get_player_number(Player* player){
+    for (pair<int, Player*> element: _players){
+        if (element.second == player){
+            return element.first;
+        }
     }
 }

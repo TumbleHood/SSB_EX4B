@@ -3,5 +3,5 @@
 class Contessa: public Player{
     public:
         Contessa(Game* game, string name);
-        void block(Player& player);
+        void block(Player* player);
 };
