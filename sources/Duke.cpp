@@ -5,7 +5,7 @@ Duke::Duke(Game* game, string name){
     _name = name;
     _role = "Duke";
     _coins = 0;
-    game->add_player(name);
+    game->add_player(this);
 }
 
 void Duke::tax(){

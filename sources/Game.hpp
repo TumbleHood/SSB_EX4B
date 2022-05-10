@@ -1,12 +1,16 @@
+#pragma once
+
+#include "Player.hpp"
 #include <string>
 #include <vector>
+#include <map>
 
 using namespace std;
 
 namespace coup{
     class Game{
         protected:
-            vector<string> _players;
+            map<int, Player*> _players;
             int _turn;
             string _winner;
         public:
@@ -14,7 +18,7 @@ namespace coup{
             vector<string> players();
             string turn();
             string winner();
-            void add_player(string player);
+            void add_player(Player* player);
             void advance_turn();
     };
 }

@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Game.hpp"
 
 using namespace coup;
@@ -11,8 +13,8 @@ class Player{
         int _coins;
         void income();
         void foreign_aid();
-        void coup(Player& player);
+        void coup(Player* player);
         string role();
         int coins();
-        virtual void block() = 0;
+        string get_name();
 };

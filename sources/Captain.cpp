@@ -5,10 +5,20 @@ Captain::Captain(Game* game, string name){
     _name = name;
     _role = "Captain";
     _coins = 0;
-    game->add_player(name);
+    _stolen = nullptr;
+    _stole = false;
+    game->add_player(this);
 }
 
-void Captain::steal(Player& player){
-    player._coins -= 2;
+void Captain::steal(Player* player){
+    player->_coins -= 2;
     _coins += 2;
+    _stolen = player;
+    _stole = true;
+}
+
+void Captain::unsteal(){
+    _stolen->_coins += 2;
+    _coins -= 2;
+    _stole = false;
 }

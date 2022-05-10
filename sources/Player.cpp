@@ -15,3 +15,7 @@ int Player::coins(){
 string Player::role(){
     return _role;
 }
+
+string Player::get_name(){
+    return _name;
+}
