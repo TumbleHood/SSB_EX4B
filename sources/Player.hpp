@@ -18,10 +18,9 @@ namespace coup
             void foreign_aid();
             void coup(Player& player);
             string role();
-            int coins();
+            int coins() const;
             string get_name();
             void reset_turn();
-            ~Player();
-
+            virtual ~Player();
     };
 }
